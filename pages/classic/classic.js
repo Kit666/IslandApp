@@ -1,5 +1,5 @@
-import {HTTP} from '../../Util/http.js'
-let http = new HTTP ()
+import {ClassicModel} from '../../models/classic.js'
+let classic = new ClassicModel()
 // pages/classic/classic.js
 Page({
 
@@ -13,7 +13,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    classic.getLatest( (res) => {
+      
+    })
   },
 
   /**
