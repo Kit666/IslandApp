@@ -13,21 +13,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    http.request({
-      url:'classic/latest',
-      success: (res) => {
-        console.log(res)
-      }
-    })
-    // wx.request({
-    //   url: 'http://bl.7yue.pro/v1/classic/latest',
-    //   header: {
-    //     appkey: "Tnq84JUzGhiBKbOh"
-    //   },
-    //   success: (res) => {
-    //     console.log(res);
-    //   }
-    // })
+    
   },
 
   /**
