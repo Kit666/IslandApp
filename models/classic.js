@@ -1,4 +1,4 @@
-import {HTTP} from '../Util/http.js'
+import {HTTP} from '../util/http.js'
 
 class ClassicModel extends HTTP {
   getLatest (sCallback) {

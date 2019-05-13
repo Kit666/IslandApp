@@ -16,10 +16,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-    //数据绑定
-    //三元表达式
-    //组件封装性、开放性
-    //粒度
     yesSrc: 'images/like.png',
     noSrc: 'images/like@dis.png'
   },
