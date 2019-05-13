@@ -1,6 +1,7 @@
 import {config} from '../config.js'
 
 const tips = {
+  //1 默认的错误提示信息
   1: '抱歉，出现了一个错误',
   1005: 'appkey无效',
   3000: '期刊不存在'
@@ -8,12 +9,12 @@ const tips = {
 
 class HTTP {
   request(params) {
-    if (!params.methods) {
-      params.methosd = "GET";
+    if (!params.method) {
+      params.method = "GET";
     }
     wx.request({
       url: config.api_base_url + params.url,
-      methods: params.methods,
+      method: params.method,
       data: params.data,
       header: {
         'content-type': 'application/json',
@@ -23,7 +24,7 @@ class HTTP {
         //code不是字符串，是数字
         let code = res.statusCode.toString();
         if (code.startsWith('2')) {
-          params.success(res.data)
+         params.success && params.success(res.data)
         } 
         else {
           //服务器异常
@@ -32,7 +33,7 @@ class HTTP {
         }
       },
       fail: (err) => {
-        //api调用失败
+        //api调用失败，网络连接断开
         this._show_error(1)
       }
     })
