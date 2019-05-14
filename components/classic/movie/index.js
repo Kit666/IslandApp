@@ -2,6 +2,7 @@
 import { classicBeh } from '../classic-beh.js'
 
 Component({
+  // behaciors行为继承，支持多继承
   behaviors: [classicBeh],
 
   /**

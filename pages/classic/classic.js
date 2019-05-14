@@ -12,16 +12,44 @@ Page({
   data: {
     classicData: null,
     latest: true,
-    fiest: false
+    first: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    // 数据更新，缓存功能 setStorage 保存 latestClassicData
     classicModel.getLatest((res) => {
       this.setData({
         classicData: res
+      })
+      // 当前是否是最新的期刊逻辑
+      // latestClassicData.index-->latestIndex 
+      // currentClassicData.index-->currentIndex
+      // 对比currentIndex  latestIndex  
+    })
+  },
+
+  /**
+   * 用户点击向左切换按钮的监听函数
+   */
+  onNext: function (event) {
+
+  },
+
+  /**
+   * 用户点击向右切换按钮的监听函数
+   */
+  onPrevious: function (event) {
+    //let index获取classicData.index的数据
+    let index = this.data.classicData.index;
+    classicModel.getPrevious(index, (res) => {
+      console.log(res);
+      this.setData({
+        classicData: res,
+        latest: classicModel.isLatest(res.index),
+        first: classicModel.isFirst(res.index)
       })
     })
   },
@@ -82,13 +110,7 @@ Page({
     // console.log(event);
     let behavior = event.detail.behavior;
     likeModel.like(behavior, this.data.classicData.id, this.data.classicData.type)
-  },
-
-  onNext: function(event) {
-
-  },
-
-  onPrevious: function(event) {
-    
   }
+
+  
 })

@@ -16,8 +16,6 @@ Component({
     disLeftSrc: 'images/triangle.dis@left.png',
     leftSrc: 'images/triangle@left.png',
     disRightSrc: 'images/triangle.dis@right.png',
-    leftSrc: 'images/triangle@left.png',
-    disRightSrc: 'images/triangle.dis@right.png',
     rightSrc: 'images/triangle@right.png'
   },
 
